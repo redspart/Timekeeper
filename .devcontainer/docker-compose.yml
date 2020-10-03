@@ -1,0 +1,17 @@
+version: '3'
+services:
+  timekeeper:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker-host.sock 
+    # Overrides default command so things don't shut down after the process ends.
+    ports: 
+      - 80:80
+    environment:
+      - SECRET_KEY=very_secure
+    entrypoint: /usr/local/share/docker-init.sh
+    command: sleep infinity 
+    
