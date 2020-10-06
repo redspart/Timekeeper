@@ -1,6 +1,3 @@
-generate:
-	python manage.py makemigration
-
 migrate:
 	python manage.py makemigrations
 
